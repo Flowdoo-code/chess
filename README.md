@@ -1,12 +1,11 @@
-
- # Chess Board
+# Chess Board
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Board</title>
+    <title>Chess Game</title>
     <style>
         body {
             display: flex;
@@ -15,21 +14,21 @@
             height: 100vh;
             background-color: #f0f0f0;
         }
-        .chess-board {
+        #chessboard {
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             width: 400px;
             height: 400px;
         }
-        .chess-board div {
+        .square {
             width: 50px;
             height: 50px;
         }
-        .black {
-            background-color: #769656;
-        }
         .white {
-            background-color: #eeeed2;
+            background-color: white;
+        }
+        .black {
+            background-color: gray;
         }
         .piece {
             font-size: 2em;
@@ -40,30 +39,41 @@
     </style>
 </head>
 <body>
-    <div class="chess-board">
-        <div class="white piece" onclick="movePiece(this)">♖</div>
-        <div class="black piece" onclick="movePiece(this)">♘</div>
-        <div class="white piece" onclick="movePiece(this)">♗</div>
-        <div class="black piece" onclick="movePiece(this)">♕</div>
-        <div class="white piece" onclick="movePiece(this)">♔</div>
-        <div class="black piece" onclick="movePiece(this)">♗</div>
-        <div class="white piece" onclick="movePiece(this)">♘</div>
-        <div class="black piece" onclick="movePiece(this)">♖</div>
-        <div class="black piece" onclick="movePiece(this)">♟</div>
-        <div class="white piece" onclick="movePiece(this)">♟</div>
-        <div class="black piece" onclick="movePiece(this)">♟</div>
-        <div class="white piece" onclick="movePiece(this)">♟</div>
-        <div class="black piece" onclick="movePiece(this)">♟</div>
-        <div class="white piece" onclick="movePiece(this)">♟</div>
-        <div class="black piece" onclick="movePiece(this)">♟</div>
-        <div class="white piece" onclick="movePiece(this)">♟</div>
-    </div>
-
+    <div id="chessboard"></div>
     <script>
-        function movePiece(piece) {
-            // Logic to move the piece
-            alert("Move the piece!");
+        const board = document.getElementById('chessboard');
+        const pieces = {
+            'r': '♖', 'n': '♘', 'b': '♗', 'q': '♕', 'k': '♔', 'p': '♙',
+            'R': '♜', 'N': '♞', 'B': '♟', 'Q': '♛', 'K': '♚', 'P': '♟'
+        };
+        const initialBoard = [
+            'rnbqkbnr',
+            'pppppppp',
+            '........',
+            '........',
+            '........',
+            '........',
+            'PPPPPPPP',
+            'RNBQKBNR'
+        ];
+
+        function createBoard() {
+            initialBoard.forEach((row, rowIndex) => {
+                row.split('').forEach((piece, colIndex) => {
+                    const square = document.createElement('div');
+                    square.className = 'square ' + ((rowIndex + colIndex) % 2 === 0 ? 'white' : 'black');
+                    if (piece !== '.') {
+                        const pieceElement = document.createElement('div');
+                        pieceElement.className = 'piece';
+                        pieceElement.innerHTML = pieces[piece];
+                        square.appendChild(pieceElement);
+                    }
+                    board.appendChild(square);
+                });
+            });
         }
+
+        createBoard();
     </script>
 </body>
 </html>
