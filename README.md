@@ -1,11 +1,12 @@
-# Chess Board
+
+ # Chess Board
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Game</title>
+    <title>Chess Board</title>
     <style>
         body {
             display: flex;
@@ -30,44 +31,39 @@
         .white {
             background-color: #eeeed2;
         }
+        .piece {
+            font-size: 2em;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="chess-board">
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="black"></div>
+        <div class="white piece" onclick="movePiece(this)">♖</div>
+        <div class="black piece" onclick="movePiece(this)">♘</div>
+        <div class="white piece" onclick="movePiece(this)">♗</div>
+        <div class="black piece" onclick="movePiece(this)">♕</div>
+        <div class="white piece" onclick="movePiece(this)">♔</div>
+        <div class="black piece" onclick="movePiece(this)">♗</div>
+        <div class="white piece" onclick="movePiece(this)">♘</div>
+        <div class="black piece" onclick="movePiece(this)">♖</div>
+        <div class="black piece" onclick="movePiece(this)">♟</div>
+        <div class="white piece" onclick="movePiece(this)">♟</div>
+        <div class="black piece" onclick="movePiece(this)">♟</div>
+        <div class="white piece" onclick="movePiece(this)">♟</div>
+        <div class="black piece" onclick="movePiece(this)">♟</div>
+        <div class="white piece" onclick="movePiece(this)">♟</div>
+        <div class="black piece" onclick="movePiece(this)">♟</div>
+        <div class="white piece" onclick="movePiece(this)">♟</div>
     </div>
+
+    <script>
+        function movePiece(piece) {
+            // Logic to move the piece
+            alert("Move the piece!");
+        }
+    </script>
 </body>
 </html>
-# chess
